@@ -7,8 +7,8 @@ class Menu(models.Model):
 		db_table = 'Menu'
 
 class Category(models.Model):
-	Category_name = models.CharField(max_length = 20)
-	name  = models.ForeignKey('Menu', on_delete=models.CASCADE)
+	name 	 = models.CharField(max_length = 20)
+	menu  = models.ForeignKey('Menu', on_delete=models.CASCADE)
 
 	class Meta:
 		db_table = 'Category'
@@ -38,20 +38,20 @@ class nutrition(models.Model):
 
 class image_url(models.Model):
 	image_url  = models.CharField(max_length = 2000)
-	products   = models.ForeignKey('products', on_delete=models.CASCADE)
+	product  = models.ForeignKey('products', on_delete=models.CASCADE)
 
 	class Meta:
 		db_table = 'image'
 
 class allergy_products(models.Model):
-	allergy_id    = models.ForeignKey('allergy', on_delete=models.CASCADE)
-	product_id    = models.ForeignKey('products', on_delete=models.CASCADE)
+	allergy    = models.ForeignKey('allergy', on_delete=models.CASCADE)
+	product    = models.ForeignKey('products', on_delete=models.CASCADE)
 
 	class Meta:
 		db_table = 'allergy_products'
 
 class allergy(models.Model):
-	name   = models.CharField(max_length = 45)
+	name   = models.CharField(max_length = 50)
 
 	class Meta:
 		db_table = 'allergy'
